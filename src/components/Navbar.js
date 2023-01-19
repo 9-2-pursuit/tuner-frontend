@@ -1,8 +1,13 @@
+import { Link } from "react-router-dom";
+import { MusicalNoteIcon } from "@heroicons/react/24/solid";
+
 function Navbar() {
   return (
-    <div className="navbar bg-base-100 max-w-screen-xl	  mx-auto">
+    <div className="navbar bg-base-100 max-w-screen-xl mx-auto">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">Tuner</a>
+        <Link to="/songs" className="btn btn-ghost normal-case text-3xl">
+          Tuner <MusicalNoteIcon className="w-7" />
+        </Link>
       </div>
       <div className="flex-none gap-2">
         <div className="form-control">
