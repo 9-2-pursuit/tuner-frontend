@@ -4,7 +4,7 @@ import { MusicalNoteIcon } from "@heroicons/react/24/solid";
 function Navbar() {
   return (
     <div className="navbar bg-base-100 max-w-screen-xl mx-auto">
-      <div className="flex-1">
+      <div className="flex-1 text-violet-500	">
         <Link to="/songs" className="btn btn-ghost normal-case text-3xl">
           Tuner <MusicalNoteIcon className="w-7" />
         </Link>

@@ -19,7 +19,7 @@ function Home() {
               Welcome to Tuner App
             </h1>
             <p className="mb-5 text-lg">
-              "Unleash the power of music with our app."
+              Unleash the power of music with our app.
             </p>
             <Link to="/songs">
               <button className="btn btn-primary">Get Started</button>
