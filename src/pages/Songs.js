@@ -1,8 +1,10 @@
 import useFetch from "../hooks/useFetch";
+import { useNavigate } from "react-router-dom";
 const url = process.env.REACT_APP_API_URL;
 
 function Songs() {
   const { data: songs, error, loading } = useFetch(url);
+  const navigate = useNavigate();
   console.log(songs, error, loading);
   return (
     <div className="container max-w-screen-xl mx-auto mt-5">
@@ -20,7 +22,11 @@ function Songs() {
           </thead>
           <tbody>
             {songs.map((song, i) => (
-              <tr key={song.id}>
+              <tr
+                key={song.id}
+                onClick={() => navigate(`${song.id}`)}
+                className="cursor-pointer"
+              >
                 <th>{i + 1}</th>
                 <td>{song.name}</td>
                 <td>{song.artist}</td>

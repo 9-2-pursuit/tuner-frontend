@@ -10,8 +10,14 @@ function Home() {
       >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-lg">
-            <h1 className="mb-5 text-5xl font-bold">Welcome to Tuner App</h1>
+          <div className="max-w-xl">
+            <h1
+              className="mb-5  font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 fill-transparent	bg-clip-text"
+              style={{ fontSize: "5rem" }}
+              id="welcome-text"
+            >
+              Welcome to Tuner App
+            </h1>
             <p className="mb-5 text-lg">
               "Unleash the power of music with our app."
             </p>
