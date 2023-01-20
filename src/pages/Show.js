@@ -1,21 +1,41 @@
 import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
-import { SparklesIcon, ClockIcon } from "@heroicons/react/24/solid";
-const url = process.env.REACT_APP_API_URL;
+import {
+  SparklesIcon,
+  ClockIcon,
+  TrashIcon,
+  BackspaceIcon,
+  PencilIcon,
+} from "@heroicons/react/24/solid";
 
 function Show() {
   const { id } = useParams();
+  const URL = process.env.REACT_APP_API_URL + "/" + id;
   const navigate = useNavigate();
-  const { data: song, loading, error } = useFetch(url + "/" + id);
+  const { data: song, loading, error } = useFetch(URL);
+
+  function deleteSong(id) {
+    fetch(URL, { method: "DELETE" })
+      .then((res) => {
+        console.log(res);
+        if (!res.ok) throw new Error(res.statusText);
+        if (res.ok) {
+          navigate("/songs");
+        }
+        return res.json();
+      })
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  }
 
   return (
     <div
-      className="w-full min-h-screen  flex justify-center items-center mx-auto  bg-no-repeat bg-cover"
+      className="w-full min-h-screen  flex justify-center items-center mx-auto  bg-no-repeat bg-cover "
       style={{
         backgroundImage: `url(https://placeimg.com/1000/800/nature)`,
       }}
     >
-      <div className="card w-96 h-max glass bg-opacity-50 bg-gray-800 text-white">
+      <div className="card w-90 h-max glass bg-opacity-50 bg-gray-800 text-white shadow-lg">
         <figure>
           <img src="https://placeimg.com/400/225/arch" alt="car!" />
         </figure>
@@ -31,16 +51,34 @@ function Show() {
               <ClockIcon className="w-5" /> {song.time}
             </span>
           </div>
-          <div className="card-actions justify-end mt-5">
-            <button
+          <div className="card-actions justify-center mt-5">
+            {/* <button
               className="btn btn-primary"
               onClick={() => navigate("edit")}
             >
               Edit Song
-            </button>
+            </button> */}
+            <div className="btn-group">
+              <button className="btn" onClick={() => navigate("/songs")}>
+                <BackspaceIcon className="w-5" />
+              </button>
+              <button className="btn" onClick={() => navigate("edit")}>
+                <PencilIcon className="w-5" />
+              </button>
+              <button className="btn" onClick={deleteSong}>
+                <TrashIcon className="w-5" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* <div className="mockup-phone">
+        <div className="camera"></div>
+        <div className="display">
+          <div className="artboard artboard-demo phone-1"></div>
+        </div>
+      </div> */}
     </div>
   );
 }
