@@ -1,8 +1,9 @@
 import useFetch from "../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
-const url = process.env.REACT_APP_API_URL;
+import { HeartIcon } from "@heroicons/react/24/solid";
 
 function Songs() {
+  const url = process.env.REACT_APP_API_URL;
   const { data: songs, error, loading } = useFetch(url);
   const navigate = useNavigate();
   console.log(songs, error, loading);
@@ -32,7 +33,15 @@ function Songs() {
                 <td>{song.artist}</td>
                 <td> {song.album}</td>
                 <td>{song.time}</td>
-                <td>{song.is_favorite + ""}</td>
+                {/* <td>{song.is_favorite + ""}</td> */}
+                <td>
+                  {" "}
+                  {song.is_favorite ? (
+                    <HeartIcon className="w-4 text-violet-500" />
+                  ) : (
+                    <HeartIcon className="w-4" />
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
