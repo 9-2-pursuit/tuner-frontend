@@ -6,6 +6,7 @@ import {
   TrashIcon,
   BackspaceIcon,
   PencilIcon,
+  HeartIcon,
 } from "@heroicons/react/24/solid";
 
 function Show() {
@@ -42,6 +43,9 @@ function Show() {
         <div className="card-body">
           <h2 className="card-title flex items-center justify-between">
             {song.name}
+            <HeartIcon
+              className={song.is_favorite ? "text-violet-500 w-10" : "w-10"}
+            />
           </h2>
           <SparklesIcon className="block mx-auto w-10 text-center " />{" "}
           <span className="text-right "> {song.album}</span>
@@ -52,12 +56,6 @@ function Show() {
             </span>
           </div>
           <div className="card-actions justify-center mt-5">
-            {/* <button
-              className="btn btn-primary"
-              onClick={() => navigate("edit")}
-            >
-              Edit Song
-            </button> */}
             <div className="btn-group">
               <button className="btn" onClick={() => navigate("/songs")}>
                 <BackspaceIcon className="w-5" />
@@ -72,13 +70,6 @@ function Show() {
           </div>
         </div>
       </div>
-
-      {/* <div className="mockup-phone">
-        <div className="camera"></div>
-        <div className="display">
-          <div className="artboard artboard-demo phone-1"></div>
-        </div>
-      </div> */}
     </div>
   );
 }

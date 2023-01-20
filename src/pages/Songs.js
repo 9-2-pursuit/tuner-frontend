@@ -33,9 +33,7 @@ function Songs() {
                 <td>{song.artist}</td>
                 <td> {song.album}</td>
                 <td>{song.time}</td>
-                {/* <td>{song.is_favorite + ""}</td> */}
                 <td>
-                  {" "}
                   {song.is_favorite ? (
                     <HeartIcon className="w-4 text-violet-500" />
                   ) : (
