@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function New() {
+  const navigate = useNavigate();
   const URL = process.env.REACT_APP_API_URL;
   const [songData, setSongData] = useState({
     name: "",
@@ -34,7 +36,10 @@ function New() {
         console.log(res);
         return res.json();
       })
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        navigate("/songs");
+      })
       .catch((err) => console.log(err));
   }
 
@@ -121,6 +126,7 @@ function New() {
               <input
                 id="is_favorite"
                 type="checkbox"
+                value={songData.is_favorite}
                 checked={songData.is_favorite}
                 className="checkbox checkbox-primary"
                 onChange={(e) => handleChange(e)}

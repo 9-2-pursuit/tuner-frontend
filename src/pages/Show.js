@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { SparklesIcon, ClockIcon } from "@heroicons/react/24/solid";
 const url = process.env.REACT_APP_API_URL;
 
 function Show() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { data: song, loading, error } = useFetch(url + "/" + id);
 
   return (
@@ -31,7 +32,12 @@ function Show() {
             </span>
           </div>
           <div className="card-actions justify-end mt-5">
-            <button className="btn btn-primary">Listen now!</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => navigate("edit")}
+            >
+              Edit Song
+            </button>
           </div>
         </div>
       </div>
