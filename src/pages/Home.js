@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 function Home() {
   return (
-    <div className="home  mx-auto">
+    <div className="home h-full  mx-auto">
       <div
-        className="hero min-h-screen"
+        className="hero h-full "
         style={{
           backgroundImage: `url(https://images.unsplash.com/photo-1603850121303-d4ade9e5ba65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)`,
         }}

@@ -25,7 +25,7 @@ function Songs() {
               <tr
                 key={song.id}
                 onClick={() => navigate(`${song.id}`)}
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-indigo-500 duration-150 transition ease-in-out delay-100 "
               >
                 <th>{i + 1}</th>
                 <td>{song.name}</td>
