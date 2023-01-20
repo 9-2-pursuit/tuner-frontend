@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function Home() {
   return (
-    <div className="home h-full  mx-auto">
+    <div className="home h-full  mx-auto  border-violet-900 border-t">
       <div
         className="hero h-full "
         style={{
@@ -12,7 +12,7 @@ function Home() {
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-xl">
             <h1
-              className="mb-5  font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 fill-transparent	bg-clip-text"
+              className="mb-5  font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 fill-transparent	bg-clip-text text-focus-in"
               style={{ fontSize: "5rem" }}
               id="welcome-text"
             >
