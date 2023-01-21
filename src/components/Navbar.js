@@ -1,7 +1,33 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MusicalNoteIcon } from "@heroicons/react/24/solid";
 
 function Navbar() {
+  const [darkMode, setdarkMode] = useState(false);
+  console.log("dark mode", darkMode);
+  function handleThemeToggle(e) {
+    setdarkMode(!darkMode);
+    document.documentElement.setAttribute(
+      "data-theme",
+      darkMode ? "dark" : "light"
+    );
+  }
+
+  // useEffect(() => {
+  //   if (localStorage.getItem("dark-theme") == "true") {
+  //     console.log("i was called");
+  //     setdarkMode("dark");
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   document.documentElement.setAttribute(
+  //     "data-theme",
+  //     darkMode ? "dark" : "light"
+  //   );
+  //   localStorage.setItem("dark-theme", darkMode);
+  // }, [darkMode]);
+
   return (
     <div className="navbar bg-base-100 max-w-screen-xl mx-auto shadow-sm">
       <div className="navbar-start">
@@ -11,10 +37,15 @@ function Navbar() {
       </div>
 
       <div className="navbar-end">
-        <div className="mr-5 hidden lg:flex">
+        <div className="mr-5 hidden md:flex">
           <label className="swap swap-rotate">
-            <input type="checkbox" className="hidden" />
-
+            <input
+              type="checkbox"
+              className="hidden"
+              onChange={handleThemeToggle}
+              value={darkMode}
+              checked={darkMode}
+            />
             <svg
               className="swap-on fill-current w-10 h-10"
               xmlns="http://www.w3.org/2000/svg"
