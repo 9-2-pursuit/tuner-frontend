@@ -4,13 +4,13 @@ import { HeartIcon } from "@heroicons/react/24/solid";
 
 const URL = process.env.REACT_APP_API_URL;
 
-function Artist() {
+function Artists() {
   const { id } = useParams();
   const [songs, setSongs] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(URL + "artist/" + id)
+    fetch(URL + "artists/" + id)
       .then((res) => res.json())
       .then((data) => setSongs(data))
       .catch(console.error);
@@ -26,7 +26,7 @@ function Artist() {
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
           xmlnsXlink="http://www.w3.org/1999/xlink"
-          xmlnsSvgjs="http://svgjs.dev/svgjs"
+          xmlnssvgjs="http://svgjs.dev/svgjs"
           viewBox="0 0 1422 800"
           className="h-full"
         >
@@ -39,22 +39,22 @@ function Artist() {
               id="oooscillate-grad"
             >
               <stop
-                stop-color="hsl(206, 75%, 49%)"
-                stop-opacity="1"
+                stopColor="hsl(206, 75%, 49%)"
+                stopOpacity="1"
                 offset="0%"
               ></stop>
               <stop
-                stop-color="hsl(331, 90%, 56%)"
-                stop-opacity="1"
+                stopColor="hsl(331, 90%, 56%)"
+                stopOpacity="1"
                 offset="100%"
               ></stop>
             </linearGradient>
           </defs>
           <g
-            stroke-width="2"
+            strokeWidth="2"
             stroke="url(#oooscillate-grad)"
             fill="none"
-            stroke-linecap="round"
+            strokeLinecap="round"
           >
             <path
               d="M 0 572 Q 355.5 -100 711 400 Q 1066.5 900 1422 572"
@@ -160,8 +160,8 @@ function Artist() {
         </svg>
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold text-white">
+          <div className="w-full">
+            <h1 className="mb-5  text-7xl font-bold text-white">
               {songs[0]?.artist}
             </h1>
           </div>
@@ -181,7 +181,7 @@ function Artist() {
           </thead>
           <tbody>
             {songs.map((song, i) => (
-              <tr>
+              <tr key={song.id}>
                 <th>{i + 1}</th>
                 <td
                   onClick={() => navigate(`/songs/${song.id}`)}
@@ -213,4 +213,4 @@ function Artist() {
   );
 }
 
-export default Artist;
+export default Artists;

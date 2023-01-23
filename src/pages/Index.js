@@ -36,13 +36,13 @@ function Songs() {
                   {song.name}
                 </td>
                 <td
-                  onClick={() => navigate(`/artist/${song.artist_id}`)}
+                  onClick={() => navigate(`/artists/${song.artist_id}`)}
                   className="hover:text-indigo-500 hover:underline"
                 >
                   {song.artist}
                 </td>
                 <td
-                  onClick={() => navigate(`/album/${song.album}`)}
+                  onClick={() => navigate(`/albums/${song.album_id}`)}
                   className="hover:text-indigo-500 hover:underline"
                 >
                   {song.album}

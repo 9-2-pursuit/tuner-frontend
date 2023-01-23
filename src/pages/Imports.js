@@ -3,6 +3,7 @@ import Edit from "./Edit";
 import New from "./New";
 import Show from "./Show";
 import Index from "./Index";
-import Artist from "./Artist";
+import Artists from "./Artists";
+import Albums from "./Albums";
 
-export { Home, Index, Edit, New, Show, Artist };
+export { Home, Index, Edit, New, Show, Artists, Albums };
