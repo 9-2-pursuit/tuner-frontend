@@ -11,7 +11,7 @@ import {
 
 function Show() {
   const { id } = useParams();
-  const URL = process.env.REACT_APP_API_URL + "/" + id;
+  const URL = process.env.REACT_APP_API_URL + "songs/" + id;
   const navigate = useNavigate();
   const { data: song, loading, error } = useFetch(URL);
 

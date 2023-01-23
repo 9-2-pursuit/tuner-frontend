@@ -4,7 +4,7 @@ import useFetch from "../hooks/useFetch";
 function Edit() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const URL = process.env.REACT_APP_API_URL + "/" + id;
+  const URL = process.env.REACT_APP_API_URL + "songs/" + id;
   const { data: songData, setData: setSongData } = useFetch(URL);
 
   console.log("songdata", songData);

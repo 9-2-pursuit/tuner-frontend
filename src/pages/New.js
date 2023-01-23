@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function New() {
   const navigate = useNavigate();
-  const URL = process.env.REACT_APP_API_URL;
+  const URL = process.env.REACT_APP_API_URL + "songs";
   const [songData, setSongData] = useState({
     name: "",
     artist: "",
