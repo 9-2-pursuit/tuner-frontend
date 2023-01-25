@@ -2,14 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import ReactAudioPlayer from "react-audio-player";
 
-import {
-  SparklesIcon,
-  ClockIcon,
-  TrashIcon,
-  BackspaceIcon,
-  PencilIcon,
-  HeartIcon,
-} from "@heroicons/react/24/solid";
+import { SparklesIcon, ClockIcon, HeartIcon } from "@heroicons/react/24/solid";
 
 function Show() {
   const { id } = useParams();
@@ -76,14 +69,14 @@ function Show() {
           </div>
           <div className="card-actions justify-center mt-5">
             <div className="btn-group">
-              <button className="btn" onClick={() => navigate("/songs")}>
-                <BackspaceIcon className="w-5" />
+              <button className="btn btn-md" onClick={() => navigate("/songs")}>
+                Back
               </button>
               <button className="btn" onClick={() => navigate("edit")}>
-                <PencilIcon className="w-5" />
+                Edit
               </button>
               <button className="btn" onClick={deleteSong}>
-                <TrashIcon className="w-5" />
+                Delete
               </button>
             </div>
           </div>

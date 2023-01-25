@@ -191,12 +191,12 @@ function Artists() {
                 </td>
                 <td>{song.artist}</td>
                 <td
-                  onClick={() => navigate(`/albums/${song.id}`)}
+                  onClick={() => navigate(`/albums/${song.album_id}`)}
                   className="cursor-pointer hover:text-violet-500"
                 >
                   {song.album}
                 </td>
-                <td>{song.time}</td>
+                {Math.trunc(song.time / 60) + ":" + (song.time % 60)}
                 <td>
                   {song.is_favorite ? (
                     <HeartIcon className="w-4 text-violet-500" />
