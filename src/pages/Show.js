@@ -1,5 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import ReactAudioPlayer from "react-audio-player";
+
 import {
   SparklesIcon,
   ClockIcon,
@@ -31,14 +33,15 @@ function Show() {
 
   return (
     <div
-      className="w-full min-h-screen  flex justify-center items-center mx-auto  bg-no-repeat bg-cover "
+      className="w-full min-h-screen flex flex-col  justify-center items-center mx-auto  bg-no-repeat bg-cover "
       style={{
         backgroundImage: `url(https://placeimg.com/1000/800/nature)`,
       }}
     >
-      <div className="card w-90 h-max glass bg-opacity-50 bg-gray-800 text-white shadow-lg">
+      <div className="card max-w-min  h-min  glass bg-opacity-50 bg-gray-800 text-white shadow-lg">
         <figure>
-          <img src="https://placeimg.com/400/225/arch" alt="car!" />
+          {/* <img src="https://placeimg.com/400/225/arch" alt="car!" /> */}
+          <img src={song.picture} alt="album cover" className=" w-auto" />
         </figure>
         <div className="card-body">
           <h2 className="card-title flex items-center justify-between">
@@ -52,10 +55,17 @@ function Show() {
           <div className="mt-5 flex items-center justify-between">
             {song.artist}{" "}
             <span className="flex items-center gap-3">
-              <ClockIcon className="w-5" /> {song.time}
+              <ClockIcon className="w-5" />{" "}
+              {Math.trunc(song.time / 60) + ":" + (song.time % 60)}
             </span>
           </div>
-          <div className="card-actions justify-center mt-5">
+          <ReactAudioPlayer
+            src={song.preview}
+            autoPlay
+            controls
+            className="mx-auto"
+          />
+          {/* <div className="card-actions justify-center mt-5">
             <div className="btn-group">
               <button className="btn" onClick={() => navigate("/songs")}>
                 <BackspaceIcon className="w-5" />
@@ -67,7 +77,20 @@ function Show() {
                 <TrashIcon className="w-5" />
               </button>
             </div>
-          </div>
+          </div> */}
+        </div>
+      </div>
+      <div className="card-actions justify-center mt-5">
+        <div className="btn-group">
+          <button className="btn" onClick={() => navigate("/songs")}>
+            <BackspaceIcon className="w-5" />
+          </button>
+          <button className="btn" onClick={() => navigate("edit")}>
+            <PencilIcon className="w-5" />
+          </button>
+          <button className="btn" onClick={deleteSong}>
+            <TrashIcon className="w-5" />
+          </button>
         </div>
       </div>
     </div>

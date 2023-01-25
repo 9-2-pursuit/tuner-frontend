@@ -5,7 +5,7 @@ import "./app.css";
 
 function App() {
   return (
-    <div className="w-100 min-h-screen md:h-screen	app">
+    <div className="w-100 min-h-screen 	app">
       <Router>
         <Navbar />
         <Routes>

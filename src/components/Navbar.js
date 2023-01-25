@@ -29,7 +29,7 @@ function Navbar() {
   // }, [darkMode]);
 
   return (
-    <div className="navbar bg-base-100 max-w-screen-xl mx-auto shadow-sm">
+    <div className="navbar bg-base-100 max-w-screen-xl mx-auto shadow-sm ">
       <div className="navbar-start">
         <Link to="/songs" className="btn  btn-ghost normal-case text-3xl">
           Tuner <MusicalNoteIcon className="w-7 text-violet-500" />

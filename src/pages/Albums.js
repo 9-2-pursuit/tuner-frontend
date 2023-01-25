@@ -188,7 +188,7 @@ export default function Albums() {
                   {song.name}
                 </td>
                 <td
-                  onClick={() => navigate(`/artist/${song.artist_id}`)}
+                  onClick={() => navigate(`/artists/${song.artist_id}`)}
                   className="cursor-pointer hover:text-violet-500"
                 >
                   {song.artist}

@@ -47,7 +47,7 @@ function Songs() {
                 >
                   {song.album}
                 </td>
-                <td>{song.time}</td>
+                <td> {Math.trunc(song.time / 60) + ":" + (song.time % 60)}</td>
                 <td>
                   {song.is_favorite ? (
                     <HeartIcon className="w-4 text-violet-500" />
