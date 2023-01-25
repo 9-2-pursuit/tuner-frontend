@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function Home() {
   return (
-    <div className="home h-full  mx-auto  border-violet-900 border-t">
+    <div className="home h-screen  mx-auto  border-violet-900 border-t">
       <div
         className="hero h-full "
         style={{
