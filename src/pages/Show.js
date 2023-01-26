@@ -28,19 +28,23 @@ function Show() {
     <>
       {song && (
         <div
-          className="w-full h-screen flex flex-col  justify-center items-center mx-auto  bg-no-repeat bg-cover "
+          className="w-full h-screen  flex flex-col  justify-center items-center mx-auto  bg-no-repeat bg-cover "
           style={{
             backgroundImage: `url(https://placeimg.com/1000/800/nature)`,
           }}
         >
-          <div className="card max-w-min  max-h-min   glass bg-opacity-50 bg-gray-800 text-white shadow-lg">
+          <div className="card max-w-min  max-h-[580px]   glass bg-opacity-50 bg-gray-800 text-white shadow-lg">
             <figure>
-              {/* <img src="https://placeimg.com/400/225/arch" alt="car!" /> */}
-              <img
-                src={song.picture}
-                alt="album cover"
-                className=" object-contain "
-              />
+              {song.picture ? (
+                <img
+                  src={song.picture}
+                  alt="album cover"
+                  className=" object-contain "
+                  aspectratio="16/9"
+                />
+              ) : (
+                <img src="https://placeimg.com/400/225/arch" alt="car!" />
+              )}
             </figure>
 
             <div className="card-body ">

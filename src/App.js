@@ -14,7 +14,7 @@ import "./app.css";
 
 function App() {
   return (
-    <div className="w-100 h-full	app">
+    <div className="w-100 h-screen min-h-screen flex flex-col	app">
       <Router>
         <Navbar />
         <Routes>

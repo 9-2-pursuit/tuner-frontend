@@ -114,7 +114,7 @@ function New() {
                   min="00:02:00"
                   max="00:10:00"
                   className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                  placeholder="Enter Duration eg. 03:12"
+                  placeholder="Enter Duration In seconds eg. 120"
                   value={songData.time}
                   onChange={(e) => handleChange(e)}
                 />
