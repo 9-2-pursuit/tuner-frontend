@@ -30,7 +30,7 @@ function Show() {
         <div
           className="w-full h-screen  flex flex-col  justify-center items-center mx-auto  bg-no-repeat bg-cover "
           style={{
-            backgroundImage: `url(https://placeimg.com/1000/800/nature)`,
+            backgroundImage: `url("https://source.unsplash.com/random/?abstract")`,
           }}
         >
           <div className="card max-w-min  max-h-[580px]   glass bg-opacity-50 bg-gray-800 text-white shadow-lg">
@@ -43,7 +43,10 @@ function Show() {
                   aspectratio="16/9"
                 />
               ) : (
-                <img src="https://placeimg.com/400/225/arch" alt="car!" />
+                <img
+                  src="https://source.unsplash.com/random/400x300"
+                  alt="random album cover image"
+                />
               )}
             </figure>
 

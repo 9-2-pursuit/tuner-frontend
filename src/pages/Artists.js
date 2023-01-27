@@ -20,7 +20,10 @@ function Artists() {
     <div className="min-h-screen">
       <div
         className="hero h-64"
-        style={{ backgroundImage: `url("https://placeimg.com/1000/800/arch")` }}
+        // style={{ backgroundImage: `url("https://placeimg.com/1000/800/arch")` }}
+        style={{
+          backgroundImage: `url("https://source.unsplash.com/random/900×700/?abstract")`,
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
