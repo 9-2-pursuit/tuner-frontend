@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Toast from "../components/Toast";
 
 function New() {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ function New() {
         setCreated(true);
         setTimeout(() => {
           navigate("/songs");
-        }, 2000);
+        }, 1800);
       })
       .catch((err) => console.log(err));
   }
@@ -145,15 +146,7 @@ function New() {
           </form>
         </div>
       </div>
-      {created && (
-        <div className="toast toast-top toast-end mt-12">
-          <div className="alert alert-success">
-            <div>
-              <span>Song created successfully.</span>
-            </div>
-          </div>
-        </div>
-      )}
+      {created && <Toast message={"Song created successfully."} />}
     </div>
   );
 }

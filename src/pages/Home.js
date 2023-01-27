@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 function Home() {
   return (
     <div className="home w-full h-screen  mx-auto  border-violet-900 border-t">

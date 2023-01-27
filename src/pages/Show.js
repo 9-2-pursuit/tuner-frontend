@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import ReactAudioPlayer from "react-audio-player";
-
+import { Toast, Modal, Loading, Error } from "../components/Imports";
 import { SparklesIcon, ClockIcon, HeartIcon } from "@heroicons/react/24/solid";
 
 function Show() {
@@ -12,6 +12,7 @@ function Show() {
   const URL = process.env.REACT_APP_API_URL + "songs/" + id;
   const { data: song, loading, error } = useFetch(URL);
   console.log(deleted);
+
   function deleteSong(id) {
     fetch(URL, { method: "DELETE" })
       .then((res) => {
@@ -19,10 +20,9 @@ function Show() {
         if (!res.ok) throw new Error(res.statusText);
         if (res.ok) {
           setDeleted(true);
-
           setTimeout(() => {
             navigate("/songs");
-          }, 2000);
+          }, 1800);
         }
         return res.json();
       })
@@ -51,7 +51,7 @@ function Show() {
               ) : (
                 <img
                   src="https://source.unsplash.com/random/400x300"
-                  alt="random album cover image"
+                  alt="random album cover"
                 />
               )}
             </figure>
@@ -88,40 +88,18 @@ function Show() {
               <button className="btn" onClick={() => navigate("edit")}>
                 Edit
               </button>
-              <button className="btn" onClick={deleteSong}>
+
+              <label htmlFor="my-modal" className="btn" hidden>
                 Delete
-              </button>
+              </label>
             </div>
           </div>
         </div>
       )}
-      {deleted && (
-        <div className="toast toast-top toast-end mt-12">
-          <div className="alert alert-success">
-            <div>
-              <span>Song deleted successfully.</span>
-            </div>
-          </div>
-        </div>
-      )}
-      {loading && (
-        <div className="w-full min-h-screen flex items-center justify-center">
-          <progress className="progress bg-slate-600  w-56"></progress>{" "}
-        </div>
-      )}
-      {error && (
-        <div className="w-full min-h-screen flex items-center justify-center">
-          <div className="card w-96 bg-base-200 shadow-xl text-red-400">
-            <div className="card-body">
-              <h2 className="card-title text-5xl mb-5">Error</h2>
-              <p>Something went wrong!</p>
-              <div className="card-actions justify-end">
-                {/* <button className="btn btn-primary">Buy Now</button> */}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <Modal deleteSong={deleteSong} />
+      {deleted && <Toast message="Song deleted successfully." />}
+      {loading && <Loading />}
+      {error && <Error />}
     </>
   );
 }
