@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 function New() {
   const navigate = useNavigate();
   const URL = process.env.REACT_APP_API_URL + "songs";
+  const [created, setCreated] = useState(false);
   const [songData, setSongData] = useState({
     name: "",
     artist: "",
@@ -37,8 +38,10 @@ function New() {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-        navigate("/songs");
+        setCreated(true);
+        setTimeout(() => {
+          navigate("/songs");
+        }, 2000);
       })
       .catch((err) => console.log(err));
   }
@@ -142,6 +145,15 @@ function New() {
           </form>
         </div>
       </div>
+      {created && (
+        <div className="toast toast-top toast-end mt-12">
+          <div className="alert alert-success">
+            <div>
+              <span>Song created successfully.</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

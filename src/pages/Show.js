@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import ReactAudioPlayer from "react-audio-player";
@@ -6,17 +7,22 @@ import { SparklesIcon, ClockIcon, HeartIcon } from "@heroicons/react/24/solid";
 
 function Show() {
   const { id } = useParams();
-  const URL = process.env.REACT_APP_API_URL + "songs/" + id;
   const navigate = useNavigate();
+  const [deleted, setDeleted] = useState(false);
+  const URL = process.env.REACT_APP_API_URL + "songs/" + id;
   const { data: song, loading, error } = useFetch(URL);
-
+  console.log(deleted);
   function deleteSong(id) {
     fetch(URL, { method: "DELETE" })
       .then((res) => {
         console.log(res);
         if (!res.ok) throw new Error(res.statusText);
         if (res.ok) {
-          navigate("/songs");
+          setDeleted(true);
+
+          setTimeout(() => {
+            navigate("/songs");
+          }, 2000);
         }
         return res.json();
       })
@@ -85,6 +91,15 @@ function Show() {
               <button className="btn" onClick={deleteSong}>
                 Delete
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {deleted && (
+        <div className="toast toast-top toast-end mt-12">
+          <div className="alert alert-success">
+            <div>
+              <span>Song deleted successfully.</span>
             </div>
           </div>
         </div>
