@@ -22,7 +22,7 @@ function Show() {
           setDeleted(true);
           setTimeout(() => {
             navigate("/songs");
-          }, 1800);
+          }, 1300);
         }
         return res.json();
       })

@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import { Toast } from "../components/Imports";
 
 function Edit() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [updated, setUpdated] = useState(false);
   const URL = process.env.REACT_APP_API_URL + "songs/" + id;
   const { data: songData, setData: setSongData } = useFetch(URL);
 
@@ -35,7 +38,10 @@ function Edit() {
       })
       .then((data) => {
         console.log(data);
-        navigate("/songs");
+        setUpdated(true);
+        setTimeout(() => {
+          navigate("/songs");
+        }, 1200);
       })
       .catch((err) => console.log(err));
   }
@@ -139,6 +145,7 @@ function Edit() {
           </form>
         </div>
       </div>
+      {updated && <Toast message="Song updated successfully." />}
     </div>
   );
 }
