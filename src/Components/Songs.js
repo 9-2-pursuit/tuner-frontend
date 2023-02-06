@@ -15,7 +15,7 @@ export default function Songs() {
         setSongs(response.data);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [API]);
 
   return (
     <div className="Songs">
