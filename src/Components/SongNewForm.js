@@ -15,14 +15,6 @@ export default function SongNewForm() {
     is_favorite: false,
   });
 
-  const newLizzoSong = {
-    name: "Break Up Twice",
-    artist: "Lizzo",
-    album: "Special 235",
-    time: "2:57",
-    is_favorite: true,
-  };
-
   const addSong = () => {
     console.log("Adding song", song);
     axios
