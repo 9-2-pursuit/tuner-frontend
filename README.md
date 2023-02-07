@@ -6,7 +6,7 @@
 
 ##
 
-JSON Data from [Deezer api](https://rapidapi.com/deezerdevs/api/deezer-1) is convered into sql queries using [conver json](https://www.convertjson.com/json-to-sql.htm) then seeded to postgres.
+JSON Data from [Deezer api](https://rapidapi.com/deezerdevs/api/deezer-1) is seeded to postgres.
 
 Frontend [ Netlify](https://tuner-frontend-pern.netlify.app/) Code [Github](https://github.com/bolattt/tuner-frontend)
 

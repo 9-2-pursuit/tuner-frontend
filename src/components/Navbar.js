@@ -1,32 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MusicalNoteIcon } from "@heroicons/react/24/solid";
 
 function Navbar() {
-  const [darkMode, setdarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(undefined);
   console.log("dark mode", darkMode);
   function handleThemeToggle(e) {
-    setdarkMode(!darkMode);
+    setDarkMode(!darkMode);
+  }
+
+  useEffect(() => {
     document.documentElement.setAttribute(
       "data-theme",
       darkMode ? "dark" : "light"
     );
-  }
-
-  // useEffect(() => {
-  //   if (localStorage.getItem("dark-theme") == "true") {
-  //     console.log("i was called");
-  //     setdarkMode("dark");
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   document.documentElement.setAttribute(
-  //     "data-theme",
-  //     darkMode ? "dark" : "light"
-  //   );
-  //   localStorage.setItem("dark-theme", darkMode);
-  // }, [darkMode]);
+    localStorage.setItem("dark-theme", darkMode);
+    if (darkMode) {
+      localStorage.setItem("darkMode", "true");
+      window.document.documentElement.classList.add("dark");
+    } else if (!darkMode) {
+      localStorage.setItem("darkMode", "false");
+      window.document.documentElement.classList.remove("dark");
+    } else {
+      setDarkMode(localStorage.getItem("darkMode") === "true");
+    }
+  }, [darkMode]);
 
   return (
     <div className="navbar bg-base-100 max-w-screen-xl mx-auto shadow-sm ">
