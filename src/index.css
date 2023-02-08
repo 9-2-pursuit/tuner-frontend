@@ -1,0 +1,30 @@
+a {
+    text-decoration: none;
+}
+
+main {
+    text-align: center;
+}
+
+.New form {
+    margin: auto;
+    width: 95%;
+    text-align: left;
+  }
+
+  input[type],
+  textarea {
+    display: block;
+    width: 90%;
+    margin: auto;
+  }
+  
+  input[type="checkbox"] {
+    margin: 0;
+    width: 15%;
+  }
+  
+  input[type="submit"] {
+    width: 30%;
+  }
+  
