@@ -1,0 +1,29 @@
+.d-flex-show-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.d-flex-show-buttons button {
+    background-color: rgb(173, 173, 184);
+    border-color: black;
+    color: black;
+}
+
+.product-picture {
+    width: 40%;
+}
+
+article h3 {
+    background-color: white;
+}
+
+.product-description {
+    background-color: white;
+}
+
+/* .fav-name {
+    display: flex;
+    flex-direction: row;
+
+} */

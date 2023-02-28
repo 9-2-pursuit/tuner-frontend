@@ -1,0 +1,17 @@
+.edit-page { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-h1{
+    background-color: white;
+    margin-top: 2rem;
+}
+
+.Edit form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}

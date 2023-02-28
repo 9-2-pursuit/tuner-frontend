@@ -1,0 +1,11 @@
+.new-h1{
+    text-align: center;
+    margin-top:1rem
+}
+
+.new-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

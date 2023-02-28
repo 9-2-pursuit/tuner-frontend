@@ -1,0 +1,16 @@
+.newSong {
+    display: flex;
+
+    justify-content: center;
+}
+
+.newSong form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+form input {
+    width: 25rem;
+    color: black;
+}
